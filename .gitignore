@@ -1,0 +1,10 @@
+# jj metadata (never commit)
+.jj/
+
+# OCaml / Dune build artifacts
+_build/
+_opam/
+
+# Editor / OS cruft
+*.swp
+.DS_Store

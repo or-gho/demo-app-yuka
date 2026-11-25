@@ -1,0 +1,12 @@
+open App_shared
+
+let home () =
+  Yuka.Server.page ~title:"Home" (fun () ->
+      <main>
+        <a href=(Routes.home ())>"Home"</a>
+        <Yuka.Client><Counter initial=0 /></Yuka.Client>
+      </main>)
+
+let not_found ~path () =
+  Yuka.Server.page ~title:"Not found" (fun () ->
+      <p>(Yuka.text ("No page at " ^ path))</p>)

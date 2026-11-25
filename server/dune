@@ -1,0 +1,23 @@
+(executable
+ (name main)
+ (libraries app_shared yuka yuka-dream dream)
+ (preprocess
+  (pps yuka.ppx)))
+
+(rule
+ (targets yuka_routes.ml)
+ (action
+  (with-stdout-to
+   yuka_routes.ml
+   (run %{bin:yuka} routes --server --shared-module App_shared.Routes
+    --source %{dep:../Routes.ml}))))
+
+(rule
+ (targets yuka_css.ml)
+ (deps
+  (source_tree ../shared)
+  (sandbox always))
+ (action
+  (with-stdout-to
+   yuka_css.ml
+   (run %{bin:yuka} css --dir ../shared))))

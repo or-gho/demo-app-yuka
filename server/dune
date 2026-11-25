@@ -1,6 +1,6 @@
 (executable
  (name main)
- (libraries app_shared yuka yuka-dream dream)
+ (libraries app_shared yuka yuka-dream dream crunch)
  (preprocess
   (pps yuka.ppx)))
 
